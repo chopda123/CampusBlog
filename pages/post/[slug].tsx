@@ -9,8 +9,6 @@ import {useForm , SubmitHandler} from 'react-hook-form'
 import comment from '../../personalblog/schemas/comment' 
 // import post from '../../personalblog/schemas/post'
 
-
-
 interface Props{
     post:post  
 };
@@ -38,8 +36,7 @@ const Post =({post}:Props)=> {
         }).catch((err)=>{
             setSubmitted(false);
         });
-
-    };
+ };
 
   return (
     <div>
@@ -189,40 +186,21 @@ const Post =({post}:Props)=> {
                                 <p className='text-sm font-titleFont font-semibold text-red-500 my-1 px-4'>
                                     <span className='text-base font-bold italic mr-2'>!</span>
                                     Comment is required
-                                </p>
-                            )
-                        }
+                                </p> )}
 
+                           
                     </label>
 
                     <button className=' w-will bg-bgColor text-white text-base
                     font-titleFont font-semibold tracking-wider uppercase
                     py-2 my-2 rounded-sm hover:bg-secondaryColor duration-300'
                     type='submit' >Submit</button>
-                </form>
-       
-
-                    {/* <div className='w-full flex flex-col p-10 my-10 mx-10mx-auto shadow-bgColor
-                    shadow-lg space-y-2'>
-                        <h3 className='text-3xl font-titleFont font-semibold'>Comments</h3>
-                        <hr />
-                        {
-                         post.comments.map((comment)=> ( 
-                    
-                            <div key={comment._id} >
-                           
-                                <p> <span>{comment.name}</span>{comment.comment}</p>
-                            </div>
-                            ))}  
-                        
-                    </div> */}
-
-
+                </form>        
                                         <div className='w-full flex flex-col p-10 my-10 mx-auto shadow-bgColor shadow-lg space-y-2'>
                                         <h3 className='text-3xl font-titleFont font-semibold'>Comments</h3>
                                         <hr />
                                         {post.comments.map((Comment) => {
-                                            // console.log(Comment) // Add this line to log each comment to the console
+                                            
                                          
                                             return (
                                             <div key={Comment._id}>
@@ -232,10 +210,6 @@ const Post =({post}:Props)=> {
                                             </div>   
                                               )})}
                                         </div>;
-
-
-
-
 
              </div>  
              }     
@@ -267,40 +241,7 @@ export const getStaticPaths = async () =>{
     };
 };
 
-// export const getStaticProps: GetStaticProps = async({params}) =>{
-//     const query = `*[_type== "post" && slug.current == $slug][0]{
-//         _id,
-//           publishedAt,
-//           title,
-//           author ->{
-//             name,
-//             image,
-//           },
-//           "comments":*[_type == "comment" && post._ref== ^._id &&
-//         approved == true] ,
-//           description,
-//           mainImage,
-//           slug,
-//           body  
-//     }`
-//     const post = await sanityClient.fetch(query,{
-//         slug:params?.slug,
-//     })
 
-//        if(!post){
-//         return{
-//             notFound : true,
-
-//         };
-//        }
-//        return {
-//         props:{
-//             post,
-//         },
-//         revalidate: 60,
-//        };
-// };
- 
 
 
 
