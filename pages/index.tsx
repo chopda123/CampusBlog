@@ -60,9 +60,17 @@ export default function Home({posts}:props) {
             <div className="flex justify-between items-center px-4 py-1
             border-b-[1px] border-b-gray-500">
               <p className="text-titleFont text-xl font-bold">{post.title}</p>
-              <img className="w-12 h-12 rounded-full object-cover"
+
+              {/* <img className="w-12 h-12 rounded-full object-cover"
               src={urlFor(post.author.image).url()!} 
-              alt="authorImg"/>
+              alt="authorImg"/> */}
+
+              <Image className="w-12 h-12 rounded-full object-cover"
+                 width={12}
+                 height={12}
+              src={urlFor(post.author.image).url()!} 
+              alt="authorImg" />
+              
             </div>
                 <p className="py-2 h-12 uppercase text-base" >
                   {post.description.substring(0, 60)}... by -{" "}
